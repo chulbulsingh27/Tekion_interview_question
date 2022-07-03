@@ -21,6 +21,10 @@ https://www.geeksforgeeks.org/count-even-length-binary-sequences-with-same-sum-o
 
 //In an array of elements ( 1 <= a[i] <= n ), one element will be repeated. Find both the repeating and the missing elements.
 
+answer --> Traverse the array. While traversing, use the absolute value of every element as an index and make the value 
+at this index as negative to mark it visited. If something is already marked negative then this is the repeating element. To find missing, 
+traverse the array again and look for a positive value.
+
 //In an array of elements ( 1 <= a[i] <= n ) find the frequency of occurrence of numbers 1 to n without using any extra space (not even a hashmap). 
 //I was about to quit this question, the interviewer gave me a hint and then I was able to solve it. He was telling me that I have missed an edge case,
 //I didn’t get what was that edge case and he moved to the next question.
