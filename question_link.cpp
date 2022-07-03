@@ -44,6 +44,7 @@ traverse the array again and look for a positive value.
 
 //Given N coins and an array of costs that represents the cost of each digit (1,2,…9), where costs[i] is the cost of picking the digit i. 
 //The task is to find the largest number that can be represented by using the N coins.
+ answer---> https://leetcode.com/discuss/interview-question/351204/DailyHunt-or-OA-or-Largest-Number/318167
  
 
 
