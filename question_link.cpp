@@ -40,11 +40,35 @@ traverse the array again and look for a positive value.
 
 // Function f(x) is defined as the smallest fibonacci number greater than or equal to x. The task is to calculate g(l,r)
 //where g(l,r) is defined as g(l,r) = f(l)+f(l+1)+f(l+2)+…..+f(r).  Constraint: 1<=l<=r<=10^9.
+ The idea is to first compute all the fibonacci numbers below 10^9 and the smallest fibonacci number greater than 10^9. 
+ There are hardly 46 such fibonacci numbers. Now we can run a loop from l to r and check for the lower bound of each number
+ in between l to r. The catch is since r-l in the worst case is 10^9,
+one will get a tle verdict if we simply find the lower bound for every number from l to r (Can you optimize this solution to pass all the test cases?).
+ 
+ 
+ 
 
 
 //Given N coins and an array of costs that represents the cost of each digit (1,2,…9), where costs[i] is the cost of picking the digit i. 
 //The task is to find the largest number that can be represented by using the N coins.
  answer---> https://leetcode.com/discuss/interview-question/351204/DailyHunt-or-OA-or-Largest-Number/318167
+
+public String change(int N, int[] costs) {
+	String[] dp = new String[N + 1];
+	int[] dpc = new int[N + 1];
+	
+	for (int i = 0; i <= N; i++) dp[i]="";
+	
+	for (int i = 1; i <= N; i++){
+		for(int j = 0; j < 9; j++){
+			if(costs[j] <= i && N-dpc[i-costs[j]]-costs[j]>=0 && ((j+1) + dp[i-costs[j]]).compareTo(dp[i]) > 0) {
+				dp[i] = (j+1) + dp[i-costs[j]];
+				dpc[i] = dpc[i-costs[j]]+costs[j];
+			}
+		}
+	}
+	return dp[N]==""?"-1":dp[N];
+}
  
 
 
